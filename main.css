@@ -1,7 +1,8 @@
 body {
   margin: 0;
   font-family: "Helvetica Neue", sans-serif;
-  background-color: rgb(150, 105, 191);
+  background: url("/IMG.background/background.png");
+  background-size: cover;
   color: #fff;
 }
 
@@ -11,19 +12,14 @@ body {
   align-items: center;
   padding: 16px;
 }
-
-.weather-header {
-  text-align: center;
-  margin-top: 20px;
-}
-.weather-header .search-bar {
+.weather-app .search-bar {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 12px;
   gap: 8px;
 }
-.weather-header .search-bar input {
+.weather-app .search-bar input {
   flex: 1;
   max-width: 220px;
   padding: 8px 12px;
@@ -33,17 +29,17 @@ body {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
-.weather-header .search-bar input::-moz-placeholder {
+.weather-app .search-bar input::-moz-placeholder {
   color: #ccc;
 }
-.weather-header .search-bar input::placeholder {
+.weather-app .search-bar input::placeholder {
   color: #ccc;
 }
-.weather-header .search-bar input:focus {
+.weather-app .search-bar input:focus {
   outline: none;
   background: rgba(255, 255, 255, 0.2);
 }
-.weather-header .search-bar .search-btn {
+.weather-app .search-bar .search-btn {
   background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 50%;
@@ -52,8 +48,24 @@ body {
   color: #fff;
   cursor: pointer;
 }
-.weather-header .search-bar .search-btn:hover {
+.weather-app .search-bar .search-btn:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+.weather-header {
+  text-align: center;
+  margin-top: 20px;
+}
+.weather-header .status-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.weather-header .status-bar .status-icons {
+  display: flex;
+  gap: 8px;
 }
 .weather-header .location {
   font-size: 22px;
@@ -65,10 +77,14 @@ body {
   font-weight: 300;
   margin: 10px 0;
 }
-.weather-header .date-time {
-  font-size: 18px;
-  font-weight: 200;
-  margin-top: 6px;
+.weather-header .condition {
+  font-size: 16px;
+  opacity: 0.8;
+}
+.weather-header .high-low {
+  font-size: 14px;
+  margin-top: 4px;
+  opacity: 0.7;
 }
 
 .illustration {
@@ -96,11 +112,15 @@ body {
 .forecast-section .forecast-tabs .tab {
   background: transparent;
   border: none;
-  color: #fff;
+  color: #ccc;
   font-size: 14px;
   padding: 8px 16px;
   cursor: pointer;
   border-bottom: 2px solid transparent;
+}
+.forecast-section .forecast-tabs .tab.active {
+  color: #fff;
+  border-bottom: 2px solid #fff;
 }
 .forecast-section .forecast-cards {
   display: flex;
