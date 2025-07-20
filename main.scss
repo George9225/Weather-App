@@ -1,11 +1,17 @@
+html{
+  height: 100%;
+}
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Helvetica Neue', sans-serif;
-  background-color: rgb(150, 105, 191);
+  background: linear-gradient(180deg, #6eaec7 0%, #a6d8ff 100%); // default is day
   color: #fff;
+  transition: background 0.6s ease-in-out;
 }
 
 .weather-app {
+  background: inherit;  // ensure container shares body's background to avoid background gaps
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +75,7 @@ body {
     font-weight: 300;
     margin: 10px 0;
   }
-    .date-time {
+  .date-time {
     font-size: 18px;
     font-weight: 200;
     margin-top: 6px;
@@ -77,18 +83,35 @@ body {
 }
 
 .illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 24px 0;
+  height: 160px;
 
   .house-image {
-    width: 200px;
-    height: 160px;
-    background: url('');
-    margin: 0 auto;
+    font-size: 96px; // big emoji size
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Optional animation effect
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    // If using image instead of emoji
+    img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+    }
   }
 }
 
 .forecast-section {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.12); // increased opacity to prevent weird color bleed
   border-radius: 20px 20px 0 0;
   width: 100%;
   max-width: 360px;
@@ -123,6 +146,8 @@ body {
       padding: 10px;
       text-align: center;
       font-size: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
 
       .icon {
         font-size: 18px;
@@ -137,6 +162,54 @@ body {
       .temp {
         font-weight: bold;
       }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
     }
   }
 }
+
+@media (max-width: 480px) {
+  .weather-header {
+    .temperature {
+      font-size: 40px;
+    }
+    .location {
+      font-size: 18px;
+    }
+    .date-time {
+      font-size: 14px;
+    }
+  }
+  .illustration {
+    height: 120px;
+    .house-image {
+      font-size: 72px;
+    }
+  }
+}
+
+/* Tablets / iPads (max-width 768px) */
+@media (max-width: 768px) {
+  .weather-header {
+    .temperature {
+      font-size: 56px;
+    }
+    .location {
+      font-size: 20px;
+    }
+    .date-time {
+      font-size: 16px;
+    }
+  }
+  .illustration {
+    height: 140px;
+    .house-image {
+      font-size: 84px;
+    }
+  }
+}
+
