@@ -5,7 +5,7 @@ const locationEl = document.querySelector('.location');
 const temperatureEl = document.querySelector('.temperature');
 const dateTimeEl = document.querySelector('.date-time');
 const forecastCardsContainer = document.querySelector('.forecast-cards');
-const houseImage = document.querySelector('.house-image');
+const houseImage = document.querySelector('.illustration-image');
 
 async function fetchWeather(city) {
   temperatureEl.textContent = 'Loading...';
@@ -34,7 +34,6 @@ async function fetchWeather(city) {
 
     updateIllustration(mainCondition, currentTime, sunrise, sunset);
     fetchForecast(city);
-
   } catch (error) {
     alert("Error: " + error.message);
     temperatureEl.textContent = 'N/A';
@@ -78,7 +77,6 @@ async function fetchForecast(city) {
       `;
       forecastCardsContainer.appendChild(card);
     });
-
   } catch (err) {
     console.error("Forecast error", err);
   }
@@ -108,14 +106,14 @@ function getWeatherEmoji(condition) {
     case 'snow': return '❄️';
     case 'mist':
     case 'fog': return '🌫️';
-    default: return '🌡️';
+    case 'haze': return '☀️';
+    default: return '';
   }
 }
 
 function getLocalTime(offsetInSeconds) {
   const nowUTC = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000);
   const localTime = new Date(nowUTC.getTime() + offsetInSeconds * 1000);
-
   return localTime.toLocaleString('en-US', {
     weekday: 'long',
     hour: '2-digit',
@@ -136,7 +134,4 @@ searchInput.addEventListener('keypress', (e) => {
   }
 });
 
-
 fetchWeather('Batumi');
-
-

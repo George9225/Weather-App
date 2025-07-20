@@ -1,4 +1,4 @@
-html {
+html, body, .weather-app {
   height: 100%;
 }
 
@@ -41,10 +41,10 @@ body {
   color: #fff;
 }
 .weather-header .search-bar input::-moz-placeholder {
-  color: #ccc;
+  color: #fff;
 }
 .weather-header .search-bar input::placeholder {
-  color: #ccc;
+  color: #fff;
 }
 .weather-header .search-bar input:focus {
   outline: none;
@@ -85,17 +85,17 @@ body {
   margin: 24px 0;
   height: 160px;
 }
-.illustration .house-image {
+.illustration .illustration-image {
   font-size: 96px;
   transition: transform 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.illustration .house-image:hover {
+.illustration .illustration-image:hover {
   transform: scale(1.1);
 }
-.illustration .house-image img {
+.illustration .illustration-image img {
   width: 120px;
   height: 120px;
   -o-object-fit: contain;
@@ -104,7 +104,7 @@ body {
 
 .forecast-section {
   background: rgba(255, 255, 255, 0.12);
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px;
   width: 100%;
   max-width: 360px;
   padding: 16px;
@@ -169,11 +169,10 @@ body {
   .illustration {
     height: 120px;
   }
-  .illustration .house-image {
+  .illustration .illustration-image {
     font-size: 72px;
   }
 }
-/* Tablets / iPads (max-width 768px) */
 @media (max-width: 768px) {
   .weather-header .temperature {
     font-size: 56px;
@@ -187,7 +186,7 @@ body {
   .illustration {
     height: 140px;
   }
-  .illustration .house-image {
+  .illustration .illustration-image {
     font-size: 84px;
   }
 }/*# sourceMappingURL=main.css.map */
